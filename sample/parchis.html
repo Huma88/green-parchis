@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<script type="text/javascript" src="../src/parchis.js"></script>
+	</head>
+	<body>
+		<canvas id="parchis"></canvas>
+		<script type="text/javascript">
+			var p = new Parchis("parchis", {
+			nb_players: 5,
+			nb_tokens: 4,
+			nb_cells: 17,
+			nb_promotion_cells: 8,
+			nb_bridge: 3,
+			initial_cell: 6,
+			secure_cells: [1, 6, 13],
+			size: 700
+			});
+			p.players[0].tokens[0] = 6;
+			p.players[0].tokens[1] = 12;
+			p.players[0].tokens[2] = 34;
+			p.players[1].tokens[0] = 6;
+			p.players[1].tokens[1] = 45;
+			p.players[2].tokens[0] = 24;
+			p.players[3].tokens[0] = 57;
+			p.players[3].tokens[1] = 57;
+			p.players[3].tokens[2] = 57;
+			p.players[4].tokens[0] = 34;
+			p.draw();
+		</script>
+	</body>
+</html>
