@@ -1,0 +1,25 @@
+.general {
+	background-color: rgb(83, 194, 194);
+}
+
+.my-custom-scrollbar {
+	position: relative;
+	overflow: auto;
+	}
+.table-wrapper-scroll-y {
+	display: block;
+}
+.mainMenu {
+	height: 300px;
+}
+
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	background-color: rgb(26, 88, 88);
+}
+
+
