@@ -1,6 +1,16 @@
-
-
-
+function updatePreview() {
+	var preview = new Parchis("preview", {
+		nb_players: parseInt(document.getElementById("jugadores").value),
+		nb_tokens: 4,
+		nb_cells: parseInt(document.getElementById("celdas").value),
+		nb_promotion_cells: parseInt(document.getElementById("llegada").value),
+		nb_bridge: 3,
+		initial_cell: 6,
+		secure_cells: document.getElementById("seguras").value.split(/\s+/).map(function(x){ return parseInt(x); }),
+		size: 500
+	});
+	preview.draw();
+}
 
 function mainMenuOptions(option) {
 	switch(option) {

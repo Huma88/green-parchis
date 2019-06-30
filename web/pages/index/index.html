@@ -16,6 +16,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
 	<script src="index.js"></script>
+	<script src="../../../src/parchis.js"></script>
 	<link rel="stylesheet" href="index.css">
 </head>
 
@@ -27,7 +28,7 @@
 		<div class="navbar-collapse collapse" id="cabecera">
 			<ul class="navbar-nav abs-center-x">
 				<li class="nav-item">
-					<a class="nav-link" href="#">GREENCHIS</a>
+					<a class="nav-link" href="#">GREEN PARCHIS</a>
 				</li>
 			</ul>
 			<ul class="navbar-nav ml-auto" id="preLogin">
@@ -132,24 +133,22 @@
 						<div class="form-group row">
 							<label for="jugadores" class="col-sm-5 col-form-label">Nº Jugadores</label>
 							<div class="col-sm-6">
-								<input type="number" class="form-control" id="jugadores" aria-describedby="jugadores"
-									value="4">
+								<input onChange="updatePreview();" type="number" class="form-control" id="jugadores" aria-describedby="jugadores" value="4">
 							</div>
 							<div class="col-sm-1"></div>
 							<label for="celdas" class="col-sm-5 col-form-label">Celdas por jugador</label>
 							<div class="col-sm-6">
-								<input type="number" class="form-control" id="celdas" aria-describedby="celdas" value="17">
+								<input onChange="updatePreview();" type="number" class="form-control" id="celdas" aria-describedby="celdas" value="17">
 							</div>
 							<div class="col-sm-1"></div>
 							<label for="llegada" class="col-sm-5 col-form-label">Casillas de llegada</label>
 							<div class="col-sm-6">
-								<input type="number" class="form-control" id="llegada" aria-describedby="llegada" value="8">
+								<input onChange="updatePreview();" type="number" class="form-control" id="llegada" aria-describedby="llegada" value="8">
 							</div>
 							<div class="col-sm-1"></div>
 							<label for="seguras" class="col-sm-5 col-form-label">Casillas seguras por jugador</label>
 							<div class="col-sm-6">
-								<input type="text" class="form-control" id="seguras" aria-describedby="casillasSeguras"
-									value="5 12 17">
+								<input onChange="updatePreview();" type="text" class="form-control" id="seguras" aria-describedby="casillasSeguras" value="5 12 17">
 							</div>
 							<div class="col-sm-1"></div>
 							<div class="col-sm-4"></div>
@@ -157,6 +156,8 @@
 							<div class="col-sm-4"></div>
 						</div>
 					</form>
+					<canvas id="preview"></canvas>
+					<script type="text/javascript">updatePreview();</script>
 				</div>
 				<div id="menuBuscarSala" class="container-fluid m-0 p-0" hidden="true">
 					<div class="table-wrapper-scroll-y my-custom-scrollbar mainMenu">
