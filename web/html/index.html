@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Parchis</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script src="../js/index.js"></script>
+	<script src="../../src/parchis.js"></script>
+	<link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body class="general">
+	<nav class="navbar navbar-expand navbar-dark bg-dark">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#indexHeader">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="navbar-collapse collapse" id="indexHeader">
+			<ul class="navbar-nav abs-center-x">
+				<li class="nav-item">
+					<a class="nav-link" href="#">GREEN PARCHIS</a>
+				</li>
+			</ul>
+			<ul class="navbar-nav ml-auto" id="preLogin">
+				<li class="nav-item dropdown mr-sm-2">
+					<a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false"><i class="fa fa-sign-in"></i> Login</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+						<form class="ml-3 mr-3">
+							<div class="form-group">
+								<label for="nickNameLogin">Nickname: </label>
+								<input type="text" class="form-control" id="nickNameLogin"
+									aria-describedby="nicknameLogin" placeholder="Insert nickname">
+							</div>
+							<div class="form-group">
+								<label for="passwordLogin">Password: </label>
+								<input type="password" class="form-control" id="passwordLogin"
+									aria-describedby="passwordLogin" placeholder="Insert Password">
+								<small id="forgotPassword" class="form-text text-muted"><a href="#">I forgot my
+										password</a></small>
+							</div>
+							<small id="wrongLogin" class="formErrorMessage form-text text-muted"
+								hidden="true"><span>Wrong user or password.</span></small>
+							<div class="form-group form-check">
+								<input type="checkbox" class="form-check-input" id="rememberMe">
+								<label class="form-check-label" for="rememberMe">Remember me</label>
+							</div>
+							<div class="text-center">
+								<button type="button" class="btn btn-primary" onClick="login()">Login</button>
+							</div>
+						</form>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Sign up</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+						<div id="signupMenu">
+							<form class="ml-3 mr-3 ">
+								<div class="form-group">
+									<label for="signupNickname">Nickname: </label>
+									<input type="text" class="form-control" id="signupNickname"
+										aria-describedby="signupNickname" placeholder="Insert a Nickname">
+									<small id="nickNameTaken" class="formErrorMessage form-text text-muted"
+										hidden="true"><span>Este
+											Nickname already taken.</span></small>
+								</div>
+								<div class="form-group">
+									<label for="signupEmail">Email: </label>
+									<input type="text" class="form-control" id="signupEmail"
+										aria-describedby="signupEmail" placeholder="Insert a valid Email">
+									<small id="invalidEmail" class="formErrorMessage form-text text-muted"
+										hidden="true"><span>Invalid email, check it and try again.</span></small>
+								</div>
+								<div class="form-group">
+									<label for="signupPassword">Password: </label>
+									<input type="password" class="form-control" id="signupPassword"
+										aria-describedby="registroPassword1" placeholder="insert your password">
+									<label for="repeatPassword">Repeat the password: </label>
+									<input type="password" class="form-control" id="repeatPassword"
+										aria-describedby="repeatPassword" placeholder="Repeat your password">
+									<small id="diferentPassword" class="formErrorMessage form-text text-muted"
+										hidden="true"><span>Password doesn't match, check it and try
+											again.</span></small>
+								</div>
+								<div class="form-group">
+
+								</div>
+								<div class="text-center">
+									<button type="button" class="btn btn-primary" onclick="signUp()">signUp</button>
+								</div>
+							</form>
+						</div>
+						<div class="p-3" id="verificationEmail" hidden="true">
+							<p>We have sent you a verification email, once you use it, your account will be created.</p>
+							<a href="#" onclick="sendEmail()">Resend verification email.</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<ul class="navbar-nav ml-auto" id="postLogin" hidden="true">
+				<li class="nav-item dropdown mr-sm-2">
+					<a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false"><i class="fa fa-circle-o" aria-hidden="true"></i>
+						User</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+						<a href="#" class="dropdown-item"><i class="fa fa-address-card" aria-hidden="true"></i>
+							Perfil</a>
+						<a href="#" class="dropdown-item"><i class="fa fa-cog" aria-hidden="true"></i> Options</a>
+						<a href="#" class="dropdown-item" onclick="logout()"><i class="fa fa-sign-out"
+								aria-hidden="true"></i>
+							Logout</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container-fluid mt-5">
+		<div class="row">
+			<div class="col">
+
+			</div>
+			<div class="col-4 p-0">
+				<div class="container-fluid btn-group p-0" role="group" aria-label="menu principal">
+					<button type="button" class="btn btn-secondary" onclick="mainMenuOptions(0)">CREATE ROOM</button>
+					<button type="button" class="btn btn-secondary" onclick="mainMenuOptions(1)">SEARCH ROOM</button>
+				</div>
+				<div id="createRoomMenu" class="container-fluid mainMenu mainMenuMenu">
+					<form>
+						<div class="form-group row">
+							<label for="playersNumber" class="col-sm-5 col-form-label">Number of players</label>
+							<div class="col-sm-6">
+								<input onChange="updatePreview();" type="number" class="form-control" id="playersNumber"
+									aria-describedby="playersNumber" value="4">
+							</div>
+							<div class="col-sm-1"></div>
+							<label for="playerTiles" class="col-sm-5 col-form-label">Tiles per player</label>
+							<div class="col-sm-6">
+								<input onChange="updatePreview();" type="number" class="form-control" id="playerTiles"
+									aria-describedby="playerTiles" value="17">
+							</div>
+							<div class="col-sm-1"></div>
+							<label for="finalTiles" class="col-sm-5 col-form-label">Number of final tiles</label>
+							<div class="col-sm-6">
+								<input onChange="updatePreview();" type="number" class="form-control" id="finalTiles"
+									aria-describedby="finalTiles" value="8">
+							</div>
+							<div class="col-sm-1"></div>
+							<label for="safeTiles" class="col-sm-5 col-form-label">Safe tiles per player</label>
+							<div class="col-sm-6">
+								<input onChange="updatePreview();" type="text" class="form-control" id="safeTiles"
+									aria-describedby="safeTiles" value="5 12 17">
+							</div>
+							<div class="col-sm-1"></div>
+							<div class="col-sm-4"></div>
+							<button type="button" class="btn btn-success mt-2 col-sm">CREATE ROOM</button>
+							<div class="col-sm-4"></div>
+						</div>
+					</form>
+					<canvas id="preview"></canvas>
+					<script type="text/javascript">updatePreview();</script>
+				</div>
+				<div id="searchRoomMenu" class="container-fluid m-0 p-0" hidden="true">
+					<div class="table-wrapper-scroll-y my-custom-scrollbar mainMenu">
+						<table class="m-0 table table-striped table-dark overflow-auto">
+							<thead>
+								<tr>
+									<th scope="col">ROOM</th>
+									<th scope="col">BOARD</th>
+									<th scope="col">FREE SEATS</th>
+									<th scope="col">JOIN</th>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td scope="col">5634</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">35</td>
+									<td scope="col"><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+									</td>
+									</td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col">
+										<a href="#">
+											<i class="fa fa-sign-in" aria-hidden="true"></i>
+										</a>
+									</td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col">
+										<a href="#">
+											<i class="fa fa-handshake-o" aria-hidden="true"></i>
+										</a>
+									</td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col">
+										<a href="#">
+											<i class="fa fa-sign-in" aria-hidden="true"></i>
+										</a>
+									</td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col"></td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col"></td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col"></td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col"></td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col"></td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col"></td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col"></td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col"></td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col"></td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col"></td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col"></td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col"></td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col"></td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col"></td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col"></td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+								<tr>
+									<td scope="col">ROOM</td>
+									<td scope="col">BOARD</td>
+									<td scope="col">FREE SEATS</td>
+									<td scope="col"></td>
+									<!--If join button is disabled, is a private game-->
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+
+			</div>
+		</div>
+	</div>
+	<footer class="footer card-footer text-muted">
+		<a href="credits.html">Meet the makers</a>
+	</footer>
+</body>
+
+</html>
