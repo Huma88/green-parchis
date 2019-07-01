@@ -133,12 +133,12 @@
 			<div class="col">
 
 			</div>
-			<div class="col-4 p-0">
-				<div class="container-fluid btn-group p-0" role="group" aria-label="menu principal">
+			<div class="col-4 p-0 ">
+				<div class="container-fluid btn-group p-0" role="group" aria-label="mainMenu">
 					<button type="button" class="btn btn-secondary" onclick="mainMenuOptions(0)">CREATE ROOM</button>
 					<button type="button" class="btn btn-secondary" onclick="mainMenuOptions(1)">SEARCH ROOM</button>
 				</div>
-				<div id="createRoomMenu" class="container-fluid mainMenu mainMenuMenu">
+				<div id="createRoomMenu" class="container-fluid mainMenu pt-4 pb-1">
 					<form>
 						<div class="form-group row">
 							<label for="playersNumber" class="col-sm-5 col-form-label">Number of players</label>
@@ -146,36 +146,73 @@
 								<input onChange="updatePreview();" type="number" class="form-control" id="playersNumber"
 									aria-describedby="playersNumber" value="4">
 							</div>
-							<div class="col-sm-1"></div>
+						</div>
+						<!--<div class="col-sm-1"></div>-->
+						<div class="form-group row">
 							<label for="playerTiles" class="col-sm-5 col-form-label">Tiles per player</label>
 							<div class="col-sm-6">
 								<input onChange="updatePreview();" type="number" class="form-control" id="playerTiles"
 									aria-describedby="playerTiles" value="17">
 							</div>
-							<div class="col-sm-1"></div>
+						</div>
+						<!--<div class="col-sm-1"></div>-->
+						<div class="form-group row">
 							<label for="finalTiles" class="col-sm-5 col-form-label">Number of final tiles</label>
 							<div class="col-sm-6">
 								<input onChange="updatePreview();" type="number" class="form-control" id="finalTiles"
 									aria-describedby="finalTiles" value="8">
 							</div>
-							<div class="col-sm-1"></div>
+						</div>
+						<!--<div class="col-sm-1"></div>-->
+						<div class="form-group row">
 							<label for="safeTiles" class="col-sm-5 col-form-label">Safe tiles per player</label>
 							<div class="col-sm-6">
 								<input onChange="updatePreview();" type="text" class="form-control" id="safeTiles"
 									aria-describedby="safeTiles" value="5 12 17">
 							</div>
-							<div class="col-sm-1"></div>
+						</div>
+						<!---->
+						<div class="form-group row">
+							<div class="col-sm-3"></div>
+							<div class="col-sm-6">
+								<canvas id="preview"></canvas>
+								<script type="text/javascript">updatePreview();</script>
+							</div>
+							<div class="col-sm-3"></div>
+						</div>
+						<div class="form-group row">
 							<div class="col-sm-4"></div>
 							<button type="button" class="btn btn-success mt-2 col-sm">CREATE ROOM</button>
 							<div class="col-sm-4"></div>
 						</div>
 					</form>
-					<canvas id="preview"></canvas>
-					<script type="text/javascript">updatePreview();</script>
 				</div>
-				<div id="searchRoomMenu" class="container-fluid m-0 p-0" hidden="true">
-					<div class="table-wrapper-scroll-y my-custom-scrollbar mainMenu">
-						<table class="m-0 table table-striped table-dark overflow-auto">
+				<div id="searchRoomMenu" class="container-fluid m-0 p-0 mainMenu" hidden="true">
+					<div>
+						<form class="container-fluid pt-4">
+							<div class="form-group row">
+								<label for="roomNumber" class="col-sm-5 col-form-label">Room number</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" id="roomNumber"
+										aria-describedby="roomNumber" placeholder="Ask the host for the room number">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="roomPassword" class="col-sm-5 col-form-label">Room password</label>
+								<div class="col-sm-6">
+									<input type="password" class="form-control" id="roomPassword"
+										aria-describedby="roomPassword" placeholder="Ask the host for the room password">
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-sm-4"></div>
+								<button type="button" class="btn btn-success mt-2 col-sm">JOIN ROOM</button>
+								<div class="col-sm-4"></div>
+							</div>
+						</form>
+					</div>
+					<div class="table-wrapper-scroll-y my-custom-scrollbar searchRoomTable">
+						<table class="m-0 table table-striped table-dark overflow-auto ">
 							<thead>
 								<tr>
 									<th scope="col">ROOM</th>

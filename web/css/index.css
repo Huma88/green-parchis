@@ -2,6 +2,11 @@
 	background-color: rgb(83, 194, 194);
 }
 
+#preview {
+	width: 100%;
+	height: 100%;
+}
+
 .my-custom-scrollbar {
 	position: relative;
 	overflow: auto;
@@ -9,12 +14,16 @@
 .table-wrapper-scroll-y {
 	display: block;
 }
+
 .mainMenu {
-	height: 300px;
+	background-color:cyan;
+	border-bottom-left-radius: 1%;
+	border-bottom-left-radius: 1%;
+	height: 610px;
 }
 
-.mainMenuMenu {
-	background-color:cyan;
+.searchRoomTable {
+	height: 416px;
 }
 
 .footer {
@@ -26,7 +35,13 @@
 	background-color: rgb(26, 88, 88);
 }
 
-
 .formErrorMessage {
 	color: red;
+}
+
+.canvasContainer {
+	/* This could be done in one single declaration. See the extended sample. */
+	margin-right: auto;
+	margin-left: auto;
+	width: 800px;
 }
