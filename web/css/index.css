@@ -1,5 +1,20 @@
+
+/*
+https://www.color-hex.com/color/00996e
+
+- HEADERS: #002d21
+- MENUBUTTONS: #004c37
+- BUTTONS: #005b42
+- BACKGROUND: #b2e0d3
+- FOOTER: #007a5
+- FOOTERTEXT: cyan
+- SECTIONS: #66c1a8
+- TABLES: #003d2c
+- DROPDOWNMENUS: 
+*/
+
 .general {
-	background-color: rgb(83, 194, 194);
+	background-color: #b2e0d3;
 }
 
 #preview {
@@ -16,7 +31,7 @@
 }
 
 .mainMenu {
-	background-color:cyan;
+	background-color:#66c1a8;
 	border-bottom-left-radius: 1%;
 	border-bottom-left-radius: 1%;
 	height: 610px;
@@ -32,7 +47,12 @@
 	bottom: 0;
 	width: 100%;
 	text-align: center;
-	background-color: rgb(26, 88, 88);
+	background-color: #007a58;
+	color: black;
+}
+
+.footer a{
+	color: cyan;
 }
 
 .formErrorMessage {
@@ -44,4 +64,21 @@
 	margin-right: auto;
 	margin-left: auto;
 	width: 800px;
+}
+
+.headers {
+	background-color: #002d21;
+}
+
+.menuSwitcher {
+	background-color: #004c37;
+	border-style: none;
+}
+
+.table {
+	background-color: #003d2c;
+}
+
+.submitButton {
+	background-color: #005b42;
 }
